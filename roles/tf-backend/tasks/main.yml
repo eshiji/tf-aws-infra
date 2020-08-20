@@ -1,0 +1,10 @@
+---
+- name: Create terraform backend configuration
+  terraform:
+    project_path: "{{ tf_project_path }}"
+    state: "{{ tf_state }}"
+    force_init: true
+    workspace: "{{ role_name }}"
+    variables_file: "{{ tf_variables_file_path }}"
+
+...

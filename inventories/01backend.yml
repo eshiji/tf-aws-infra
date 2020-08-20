@@ -1,0 +1,4 @@
+role_name: tf-backend
+tf_variables_file_path: ../inventories/00tf-backend.tfvars
+tf_project_path: "{{ role_name }}/"
+tf_state: present

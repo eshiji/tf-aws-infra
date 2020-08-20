@@ -1,0 +1,23 @@
+---
+
+- name: Invoke terraform backend module
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars_files:
+    - inventories/01backend.yml
+  roles:
+    - role: "{{ role_name }}"
+  tags: [ config, "{{ role_name }}" ]
+
+- name: Invoke terraform network module
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars_files:
+    - inventories/01network.yml
+  roles:
+    - role: "{{ role_name }}"
+  tags: [ config, "{{ role_name }}" ]
+
+...

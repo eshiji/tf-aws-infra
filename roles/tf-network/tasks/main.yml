@@ -1,0 +1,16 @@
+---
+- name: Create terraform network resources
+  terraform:
+    project_path: "{{ tf_project_path }}"
+    state: "{{ tf_state }}"
+    force_init: true
+    workspace: "{{ role_name }}"
+    variables_file: "{{ tf_variables_file_path }}"
+    backend_config:
+      region: "{{ aws_region }}"
+      bucket: "{{ tf_state_bucket }}"
+      key: "{{ role_name }}.tfstate"
+      profile: "{{ aws_local_profile }}"
+      dynamodb_table: "{{ aws_tf_lock_dynamodb_table }}"
+      workspace_key_prefix: "{{ role_name }}"
+...

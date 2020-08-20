@@ -1,0 +1,6 @@
+bucket = "terraform-statefile-storage-lasandbox2"
+region = "us-east-1"
+key = "network.tfstate"
+profile = "lasandbox"
+dynamodb_table = "tf-state-lock"
+workspace_key_prefix = "network"
