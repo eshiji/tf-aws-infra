@@ -1,0 +1,20 @@
+---
+- name: Create terraform state files s3 storage
+  s3_bucket:
+    name: "{{ aws_s3_tfstate_storage_bucket_name }}"
+    state: "{{ state }}"
+    region: "{{ aws_region }}"
+    profile: "{{ aws_local_profile }}"
+    versioning: yes
+
+- name: Create dynamodb table for terraform state lock
+  dynamodb_table:
+    name: "{{ dynamodb_table_name_tf_state_lock }}"
+    profile: "{{ aws_local_profile }}"
+    region: "{{ aws_region }}"
+    state: "{{ state }}"
+    read_capacity: "{{ dynamodb_table_read_capacity }}"
+    write_capacity: "{{ dynamodb_table_write_capacity }}"
+    hash_key_name: LockID
+    hash_key_type: STRING
+...

@@ -5,19 +5,21 @@
   connection: local
   gather_facts: no
   vars_files:
-    - inventories/01backend.yml
+    - inventories/default.yml
+    - inventories/backend.yml
   roles:
-    - role: "{{ role_name }}"
-  tags: [ config, "{{ role_name }}" ]
+    - role: backend
+  tags: [ config, backend, megazord ]
 
 - name: Invoke terraform network module
   hosts: localhost
   connection: local
   gather_facts: no
   vars_files:
-    - inventories/01network.yml
+    - inventories/default.yml
+    - inventories/network.yml
   roles:
-    - role: "{{ role_name }}"
-  tags: [ config, "{{ role_name }}" ]
+    - role: network
+  tags: [ config, network, megazord ]
 
 ...

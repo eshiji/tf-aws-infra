@@ -1,0 +1,4 @@
+role_name: network
+tf_variables_file_path: ../../inventories/dev/network.tfvars
+tf_project_path: "terraform/network/"
+tf_state: present

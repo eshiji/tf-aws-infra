@@ -1,9 +1,0 @@
-role_name: tf-network
-tf_variables_file_path: ../inventories/00tf-network.tfvars
-tf_project_path: "{{ role_name }}/"
-tf_state: present
-
-aws_region: us-east-1
-tf_state_bucket: terraform-statefile-storage-lasandbox2
-aws_local_profile: lasandbox
-aws_tf_lock_dynamodb_table: tf-state-lock
