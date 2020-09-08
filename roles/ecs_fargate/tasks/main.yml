@@ -1,0 +1,20 @@
+---
+- name: Create terraform {{ role_name }} workspace
+  command: terraform workspace new {{ role_name }}
+  ignore_errors: True  
+  args:
+    chdir: "terraform/{{ role_name }}/"
+
+- name: Change to terraform {{ role_name }} folder and init
+  command: terraform init -backend-config=../../inventories/{{ env }}/tf_backend_config -reconfigure
+  args:
+    chdir: "terraform/{{ role_name }}/"
+
+- name: Create terraform {{ role_name }} resources ({{ state }})
+  terraform:
+    project_path: "{{ tf_project_path }}"
+    state: "{{ state }}"
+    workspace: "{{ role_name }}"
+    variables_file: "{{ tf_variables_file_path }}"
+
+...

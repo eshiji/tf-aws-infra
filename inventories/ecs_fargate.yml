@@ -1,0 +1,4 @@
+role_name: ecs_fargate
+tf_variables_file_path: ../../inventories/dev/ecs_fargate.tfvars
+tf_project_path: "terraform/ecs_fargate/"
+tf_state: present

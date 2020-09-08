@@ -22,4 +22,16 @@
     - role: network
   tags: [ config, network, megazord ]
 
+- name: Invoke terraform ecs_fargate module
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  environment:
+    - AWS_PROFILE: "{{ aws_local_profile }}"
+  vars_files:
+    - inventories/default.yml
+    - inventories/ecs_fargate.yml
+  roles:
+    - role: ecs_fargate
+  tags: [ config, ecs_fargate, megazord ]
 ...

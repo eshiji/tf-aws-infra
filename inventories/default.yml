@@ -5,7 +5,7 @@ state: present
 env: dev # This value must be explicitly inputed using command line
 
 # S3 tfstate storage
-aws_s3_tfstate_storage_bucket_name: megazord-tfstates-storage
+aws_s3_tfstate_storage_bucket_name: megazord-tfstate-storage
 
 # DynamoDB stete lock
 dynamodb_table_name_tf_state_lock: tf-state-lock
