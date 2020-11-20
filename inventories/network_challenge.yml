@@ -1,0 +1,4 @@
+role_name: network_challenge
+tf_variables_file_path: ../../inventories/dev/network_challenge.tfvars
+tf_project_path: "terraform/network_challenge/"
+tf_state: present

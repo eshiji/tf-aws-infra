@@ -1,0 +1,6 @@
+role_name: s3_cloudfront
+tf_variables_file_path: ../../inventories/dev/s3_cloudfront.tfvars
+tf_project_path: "terraform/s3_cloudfront/"
+tf_state: present
+static_content_bucket_name: "demo-s3-cloudformation"
+static_content_dir: "{{ playbook_dir }}/terraform/s3_cloudfront/static_content/"

@@ -9,7 +9,7 @@
     - inventories/backend.yml
   roles:
     - role: backend
-  tags: [ config, backend, megazord ]
+  tags: [ config, backend, megazord, ec2_challenge ]
 
 - name: Invoke terraform network module
   hosts: localhost
@@ -20,7 +20,18 @@
     - inventories/network.yml
   roles:
     - role: network
-  tags: [ config, network, megazord ]
+  tags: [ config, network, megazord, ec2_challenge ]
+
+- name: Invoke terraform network_challenge module
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars_files:
+    - inventories/default.yml
+    - inventories/network_challenge.yml
+  roles:
+    - role: network_challenge
+  tags: [ config_challenge, network_challenge, megazord ]
 
 - name: Invoke terraform ecs_fargate module
   hosts: localhost
@@ -33,5 +44,31 @@
     - inventories/ecs_fargate.yml
   roles:
     - role: ecs_fargate
-  tags: [ config, ecs_fargate, megazord ]
+  tags: [ ecs_fargate, megazord ]
+
+- name: Invoke terraform ec2_infra module
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  environment:
+    - AWS_PROFILE: "{{ aws_local_profile }}"
+  vars_files:
+    - inventories/default.yml
+    - inventories/ec2_infra.yml
+  roles:
+    - role: ec2_infra
+  tags: [ ec2_infra, ec2_challenge ]
+
+- name: Invoke terraform s3_cloudfront module
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  environment:
+    - AWS_PROFILE: "{{ aws_local_profile }}"
+  vars_files:
+    - inventories/default.yml
+    - inventories/s3_cloudfront.yml
+  roles:
+    - role: s3_cloudfront
+  tags: [ s3_cloudfront, s3_cloudfront_challenge ]
 ...

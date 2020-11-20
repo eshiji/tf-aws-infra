@@ -1,4 +1,4 @@
-bucket = "megazord-tfstate-storage"
+bucket = "demo-tfstate-storage"
 region = "us-east-1"
 key = "dev.tfstate"
 profile = "lasandbox"

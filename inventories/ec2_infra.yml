@@ -1,0 +1,4 @@
+role_name: ec2_infra
+tf_variables_file_path: ../../inventories/dev/ec2_infra.tfvars
+tf_project_path: "terraform/ec2_infra/"
+tf_state: present
