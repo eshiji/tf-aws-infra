@@ -90,5 +90,5 @@ ansible-playbook -vvv deploy.yml -e env=demo -t config
 
 **Destroy**
 ```
-ansible-playbook -vvv deploy.yml -e env=demo -e ts_state=absent -t config
+ansible-playbook -vvv deploy.yml -e env=demo -e tf_state=absent -t config
 ```
