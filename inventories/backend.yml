@@ -1,2 +1,4 @@
+role_name: backend
+
 dynamodb_table_read_capacity: 1
 dynamodb_table_write_capacity: 1

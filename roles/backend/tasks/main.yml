@@ -1,4 +1,10 @@
 ---
+- name: Create terraform {{ role_name }} workspace
+  command: terraform workspace new {{ role_name }}
+  ignore_errors: True  
+  args:
+    chdir: "terraform/{{ role_name }}/"
+
 - name: Create terraform state files s3 storage
   s3_bucket:
     name: "{{ aws_s3_tfstate_storage_bucket_name }}"
